@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Combat;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,23 +11,36 @@ namespace RPG.Movement
         [SerializeField] Transform targetObject;
         [SerializeField] GameObject camTarget;
 
+        private NavMeshAgent navMeshAgent;
+
         Ray lastRay;
+
+        void Start()
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
+        }
 
         // Update is called once per frame
         void Update()
         {
-            /*  if (Input.GetMouseButton(0)) //mouse button down is one click move
-              {
-                  MoveToCursor();
-              }
-      */        //    Debug.DrawRay(lastRay.origin, lastRay.direction * 100);
             UpdateAnimator();
         }
 
-
+        public void StartMoveAction(Vector3 destination)
+        {
+            GetComponent<Fighter>().Cancel();
+            MoveTo(destination);
+        }
         public void MoveTo(Vector3 destination)
         {
-            GetComponent<NavMeshAgent>().destination = destination;
+            navMeshAgent.destination = destination;
+            navMeshAgent.isStopped = false;
+        }
+
+        public void Stop()
+        {
+            navMeshAgent.isStopped = true;
+            print("Stopped");
         }
 
         private void UpdateAnimator()
