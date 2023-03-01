@@ -12,12 +12,14 @@ namespace RPG.Movement
         [SerializeField] GameObject camTarget;
 
         private NavMeshAgent navMeshAgent;
+        Animator animator;
 
         Ray lastRay;
 
         void Start()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
+            animator = GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -33,6 +35,7 @@ namespace RPG.Movement
         }
         public void MoveTo(Vector3 destination)
         {
+            animator.SetTrigger("StopAttack");
             navMeshAgent.destination = destination;
             navMeshAgent.isStopped = false;
         }
@@ -47,7 +50,7 @@ namespace RPG.Movement
             Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity); // takes from global and converting into local //
             float speed = localVelocity.z; // we only care about the forward spoeed
-            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+            animator.SetFloat("forwardSpeed", speed);
         }
     }
 }
