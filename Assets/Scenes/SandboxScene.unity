@@ -507,6 +507,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 644374489}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &718895415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4801743296373257554, guid: d622e4ca0599a7a4b80104bb5a0aace1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3071358216813954768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &718895416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718895415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f886230e6265de44e9cdbaa2ce62a094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1001 &726304495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2579,8 +2598,13 @@ PrefabInstance:
       objectReference: {fileID: 1465865696}
     - target: {fileID: 7357485597376828718, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
         type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357485597376828718, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
+        type: 3}
       propertyPath: weaponRange
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00b4be015b13c534d9cdcfc6ea8452a8, type: 3}

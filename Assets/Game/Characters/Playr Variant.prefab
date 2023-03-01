@@ -31,6 +31,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfc3e92ad6206f48967009c4b215d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponRange: 3
 --- !u!114 &7879544567513813754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,6 +42,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77394523f7592704da05a2940924b08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &555585172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4395445049915395627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d641878cf8d5acf48871e8817a28defb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7499982026601506155
