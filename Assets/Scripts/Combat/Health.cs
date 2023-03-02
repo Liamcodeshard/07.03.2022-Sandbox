@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Combat{
+
     public class Health : MonoBehaviour
     {
         [SerializeField] private float healthPoints = 100f;

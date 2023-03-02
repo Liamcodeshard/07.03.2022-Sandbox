@@ -438,7 +438,7 @@ Transform:
   m_Children:
   - {fileID: 1239433324}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339448707 stripped
 GameObject:
@@ -934,6 +934,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036215236922539124, guid: 43a557e99e06a694ca00bcd0c5a3391d,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: fa5b2e37a095de34497b29c57f2c6afc, type: 3}
+    - target: {fileID: 4364237049931153950, guid: 43a557e99e06a694ca00bcd0c5a3391d,
+        type: 3}
+      propertyPath: weaponRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364237049931153950, guid: 43a557e99e06a694ca00bcd0c5a3391d,
+        type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364237049931153950, guid: 43a557e99e06a694ca00bcd0c5a3391d,
+        type: 3}
+      propertyPath: weaponDamage
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43a557e99e06a694ca00bcd0c5a3391d, type: 3}
@@ -2319,7 +2339,7 @@ PrefabInstance:
     - target: {fileID: 8464591488294954010, guid: 859da7a5affb84446a830ceb6ae025b9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.81
+      value: 25.33
       objectReference: {fileID: 0}
     - target: {fileID: 8464591488294954010, guid: 859da7a5affb84446a830ceb6ae025b9,
         type: 3}
@@ -2329,7 +2349,7 @@ PrefabInstance:
     - target: {fileID: 8464591488294954010, guid: 859da7a5affb84446a830ceb6ae025b9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.61
+      value: 16.19
       objectReference: {fileID: 0}
     - target: {fileID: 8464591488294954010, guid: 859da7a5affb84446a830ceb6ae025b9,
         type: 3}
@@ -2354,7 +2374,7 @@ PrefabInstance:
     - target: {fileID: 8464591488294954010, guid: 859da7a5affb84446a830ceb6ae025b9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8464591488294954010, guid: 859da7a5affb84446a830ceb6ae025b9,
         type: 3}
