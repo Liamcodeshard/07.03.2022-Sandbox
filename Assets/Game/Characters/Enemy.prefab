@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899b2ef5c41d2914488f40233d88b37e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseDistance: 3
+  chaseDistance: 9
+  strikeDistance: 2
 --- !u!114 &6960630184671876592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 0
+  strikeDistance: 2
 --- !u!1001 &4249090274846032475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,6 +126,16 @@ PrefabInstance:
       propertyPath: camTarget
       value: 
       objectReference: {fileID: 434611570706156656}
+    - target: {fileID: 4395445049915395625, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
+        type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012821466352676933, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
+        type: 3}
+      propertyPath: weaponDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8595876644798456819, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
         type: 3}
       propertyPath: health

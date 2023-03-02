@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
+using RPG.Combat;
+
 
 namespace RPG.Control
 {        
@@ -10,19 +12,35 @@ namespace RPG.Control
     public class AIController : MonoBehaviour
     {
 
-        [SerializeField] int chaseDistance;
+        [SerializeField] int chaseDistance =10;
+        [SerializeField] int strikeDistance = 2;
         GameObject player;
+        Fighter fighter;
 
-       void Update()
-       {
+        void Start()
+        {
+            fighter = GetComponent<Fighter>();
             player = GameObject.FindGameObjectWithTag("Player");
-            if(Vector3.Distance(this.transform.position, player.transform.position) < chaseDistance)
+        }
+
+        void Update()
+        {
+            if (IsInAttackRange(player) && fighter.CanAttack(player))
             {
-                print("Chase");
-                this.transform.LookAt(player.transform.position);
-                this.GetComponent<Mover>().MoveTo(player.transform.position);
-                
+                fighter.Attack(player);
             }
-       }
+            else
+            {
+                fighter.Cancel();
+            }
+
+            // if (DistanceToPlayerCheck() < strikeDistance) GetComponent<Fighter>().Attack(player);
+        }
+
+        private bool IsInAttackRange(GameObject player)
+        {
+
+            return Vector3.Distance(this.transform.position, player.transform.position) < chaseDistance;
+        }
     }
 }

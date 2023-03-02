@@ -30,8 +30,9 @@ namespace RPG.Combat
         void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
+            if (target == null) return;
 
-            if (!CanAttack(target.GetComponent<CombatTarget>()))
+            if (!CanAttack(target.gameObject))
             {
                 //here to stop the extra animation play when enemy is dead
                 StopAttack();
@@ -66,7 +67,7 @@ namespace RPG.Combat
             animator.SetTrigger("Attack");
         }
 
-        public bool CanAttack(CombatTarget target)
+        public bool CanAttack(GameObject target)
         {
             if (target == null) return false;
 
@@ -85,7 +86,7 @@ namespace RPG.Combat
             return Vector3.Distance(b:target.transform.position, a:transform.position) < weaponRange;
         }
 
-        public void Attack(CombatTarget combatTarget)
+        public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             target = combatTarget.GetComponent<Health>();
