@@ -27,29 +27,41 @@ namespace RPG.Movement
         {
             UpdateAnimator();
         }
-
+        
+        // called in PlayerController interact with movement()
         public void StartMoveAction(Vector3 destination)
         {
+            // starts the update loop which updates animator based off the speed off the navmesh
             GetComponent<ActionScheduler>().StartAction(this);
+
+            //starts the movement
             MoveTo(destination);
         }
         public void MoveTo(Vector3 destination)
         {
+            // stops the fighter script dead to prioritise movement
             animator.SetTrigger("StopAttack");
+            //sets destination
             navMeshAgent.destination = destination;
+            // negates any previous order to stop
             navMeshAgent.isStopped = false;
         }
 
         public void Cancel()
         {
+            // stops any movement
             navMeshAgent.isStopped = true;
         }
 
         private void UpdateAnimator()
         {
+            //gets speed from navmesh
             Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
-            Vector3 localVelocity = transform.InverseTransformDirection(velocity); // takes from global and converting into local //
-            float speed = localVelocity.z; // we only care about the forward spoeed
+            // takes from global and converting into local
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            // we only care about the forward speed
+            float speed = localVelocity.z;
+            //settong the speed of the walk animation
             animator.SetFloat("forwardSpeed", speed);
         }
     }
