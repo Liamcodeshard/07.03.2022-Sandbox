@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899b2ef5c41d2914488f40233d88b37e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  suspicionTime: 5
+  wayPointTolerance: 2
   chaseDistance: 5
+  patrolPath: {fileID: 0}
 --- !u!114 &6960630184671876592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +54,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899b2ef5c41d2914488f40233d88b37e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  suspicionTime: 5
+  wayPointTolerance: 1
   chaseDistance: 0
+  patrolPath: {fileID: 0}
 --- !u!1001 &4249090274846032475
 PrefabInstance:
   m_ObjectHideFlags: 0

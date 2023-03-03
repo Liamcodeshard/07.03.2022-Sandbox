@@ -4,6 +4,8 @@ using UnityEngine;
 using RPG.Movement;
 using RPG.Combat;
 using RPG.Core;
+using Unity.Collections;
+using UnityEngine.Analytics;
 
 
 namespace RPG.Control
@@ -12,18 +14,23 @@ namespace RPG.Control
 
     public class AIController : MonoBehaviour
     {
-
+        [SerializeField] private float suspicionTime = 5;
+        [SerializeField] private float wayPointTolerance = 1;
         [SerializeField] int chaseDistance =10;
+        [SerializeField] private PatrolPath patrolPath;
+
+
         GameObject player;
         Fighter fighter;
-        private Health health;
-        private Mover mover;
+        Health health;
+        Mover mover;
+
         private Vector3 guardPosition;
         private float timeSinceLastSawPlayer = Mathf.Infinity;
-        private float suspicionTime = 5;
+        private int currentWayPointIndex = 0;
 
 
-        private Vector3 playersLastSeenAtPosition;
+
 
         // question for converting this script is: hoow do we get the target for the enemy as the player/
         void Start()
@@ -38,7 +45,7 @@ namespace RPG.Control
             health = GetComponent<Health>();
 
             // get location at start of game
-            guardPosition = this.transform.position;
+           // guardPosition = this.transform.position;
 
             //get mover at the start
             mover = GetComponent<Mover>();
@@ -66,7 +73,7 @@ namespace RPG.Control
             }
             else
             {
-                GuardBehaviour();
+                PatrolBehaviour();
             }
 
             //adding a timer to create suspicion
@@ -74,10 +81,43 @@ namespace RPG.Control
 
         }
 
-        private void GuardBehaviour()
+        private void PatrolBehaviour()
         {
-            mover.StartMoveAction(guardPosition);
+            Vector3 nextPosition = guardPosition;
+
+            if (patrolPath != null)
+            {
+                if (AtWayPoint())
+                {
+                    CycleWaypoint();
+                }
+
+                nextPosition = GetCurrentWayPoint();
+            }
+
+            mover.StartMoveAction(nextPosition);
         }
+
+        private bool AtWayPoint()
+        {
+            float distanceToWaypoint = Vector3.Distance(this.transform.position, GetCurrentWayPoint());
+            print(distanceToWaypoint < wayPointTolerance);
+            return distanceToWaypoint < wayPointTolerance;
+        }
+        private void CycleWaypoint()
+        {
+            currentWayPointIndex = patrolPath.GetNextIndex(currentWayPointIndex);
+            print(currentWayPointIndex);
+        }    
+        
+        private Vector3 GetCurrentWayPoint()
+        {
+            return patrolPath.GetWaypoint(currentWayPointIndex);
+        }
+
+
+
+
 
         private void SuspicionBehaviour()
         {
