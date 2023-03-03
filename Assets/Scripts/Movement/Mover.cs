@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using RPG.Core;
+using UnityEditor.AI;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngineInternal;
 
 namespace RPG.Movement
 {
@@ -13,11 +15,13 @@ namespace RPG.Movement
 
         private NavMeshAgent navMeshAgent;
         Animator animator;
+        private Health health;
 
         Ray lastRay;
 
         void Start()
         {
+            health = GetComponent<Health>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
         }
@@ -25,6 +29,8 @@ namespace RPG.Movement
         // Update is called once per frame
         void Update()
         {
+            navMeshAgent.enabled = !health.IsDead();
+            
             UpdateAnimator();
         }
         
