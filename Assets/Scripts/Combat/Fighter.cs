@@ -11,7 +11,6 @@ namespace RPG.Combat
     {
         [SerializeField] private float weaponRange = 2f;
         [SerializeField] private float weaponDamage = 30f;
-        [SerializeField] private float weaponStrikeDelay = .45f;
 
 
         [SerializeField] private float timeBetweenAttacks =.3f;
@@ -31,10 +30,14 @@ namespace RPG.Combat
         void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
-
             if (target == null) return;
 
-            if (target.IsDead()) return;
+            if (!CanAttack(target.gameObject))
+            {
+                //here to stop the extra animation play when enemy is dead
+                StopAttack();
+                return;
+            }
 
             if (!GetIsInRange())
             {
@@ -48,25 +51,42 @@ namespace RPG.Combat
         }
         void AttackBehaviour()
         {
+            transform.LookAt(target.transform.position);
+
             if (timeSinceLastAttack > timeBetweenAttacks)
             {
-                // this triggers the Hit() event
-                animator.SetTrigger("Attack");
+                TriggerAttack();
                 timeSinceLastAttack = 0;
             }
+        }
+
+        private void TriggerAttack()
+        {
+            animator.ResetTrigger("StopAttack");
+            // this triggers the Hit() event
+            animator.SetTrigger("Attack");
+        }
+
+        public bool CanAttack(GameObject target)
+        {
+            if (target == null) return false;
+
+            return target != null && !target.GetComponent<Health>().IsDead();
         }
 
         // animation event trioggered in punch at .9
         void Hit()
         {
+            if (target == null) return;
             target.TakeDamage(weaponDamage);
+            print("Attack");
         }
         private bool GetIsInRange()
         {
             return Vector3.Distance(b:target.transform.position, a:transform.position) < weaponRange;
         }
 
-        public void Attack(CombatTarget combatTarget)
+        public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             target = combatTarget.GetComponent<Health>();
@@ -74,9 +94,14 @@ namespace RPG.Combat
 
         public void Cancel()
         {
-            animator.SetTrigger("StopAttack");
+            StopAttack();
             target = null;
         }
 
+        private void StopAttack()
+        {
+            animator.ResetTrigger("Attack");
+            animator.SetTrigger("StopAttack");
+        }
     }
 }
