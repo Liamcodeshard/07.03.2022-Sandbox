@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspicionTime: 5
-  wayPointTolerance: 2
+  wayPointTolerance: 1
   chaseDistance: 5
   patrolPath: {fileID: 0}
 --- !u!114 &6960630184671876592
@@ -134,6 +134,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395445049915395625, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1012821466352676933, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
         type: 3}

@@ -16,6 +16,7 @@ namespace RPG.Control
     {
         [SerializeField] private float suspicionTime = 5;
         [SerializeField] private float wayPointTolerance = 1;
+        [SerializeField] private float wayPointDelayTime = 3;
         [SerializeField] int chaseDistance =10;
         [SerializeField] private PatrolPath patrolPath;
 
@@ -28,6 +29,7 @@ namespace RPG.Control
         private Vector3 guardPosition;
         private float timeSinceLastSawPlayer = Mathf.Infinity;
         private int currentWayPointIndex = 0;
+        private float timeSinceArrivedAtWaypoint = 0;
 
 
 
@@ -78,6 +80,8 @@ namespace RPG.Control
 
             //adding a timer to create suspicion
             timeSinceLastSawPlayer += Time.deltaTime;
+            //adding timer to add delay at waypoint
+            timeSinceArrivedAtWaypoint += Time.deltaTime;
 
         }
 
@@ -87,9 +91,11 @@ namespace RPG.Control
 
             if (patrolPath != null)
             {
-                if (AtWayPoint())
+                if (AtWayPoint() && timeSinceArrivedAtWaypoint>wayPointDelayTime)
                 {
-                    CycleWaypoint();
+
+                    CycleWaypoint();                   
+                    timeSinceArrivedAtWaypoint = 0;
                 }
 
                 nextPosition = GetCurrentWayPoint();

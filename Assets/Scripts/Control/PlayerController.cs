@@ -46,7 +46,7 @@ namespace RPG.Control
                 if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
 
                 //check if the player is selecting that target
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButton(0))
                 {
                     //attack the target
                     GetComponent<Fighter>().Attack(target.gameObject);
