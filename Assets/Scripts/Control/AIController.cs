@@ -110,20 +110,16 @@ namespace RPG.Control
             print(distanceToWaypoint < wayPointTolerance);
             return distanceToWaypoint < wayPointTolerance;
         }
+
         private void CycleWaypoint()
         {
             currentWayPointIndex = patrolPath.GetNextIndex(currentWayPointIndex);
-            print(currentWayPointIndex);
         }    
         
         private Vector3 GetCurrentWayPoint()
         {
             return patrolPath.GetWaypoint(currentWayPointIndex);
         }
-
-
-
-
 
         private void SuspicionBehaviour()
         {
