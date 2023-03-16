@@ -99,7 +99,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 35.6
+    agentSlope: 35
     agentClimb: 0.61
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -722,6 +722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: wayPointDelayTime
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396272997094738801, guid: 859da7a5affb84446a830ceb6ae025b9,
+        type: 3}
+      propertyPath: chaseDistance
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 434611570706156658, guid: 859da7a5affb84446a830ceb6ae025b9,
         type: 3}
