@@ -1251,6 +1251,11 @@ PrefabInstance:
       propertyPath: weaponRange
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1036215236922539122, guid: 43a557e99e06a694ca00bcd0c5a3391d,
+        type: 3}
+      propertyPath: m_BaseOffset
+      value: -0.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43a557e99e06a694ca00bcd0c5a3391d, type: 3}
 --- !u!4 &898424185 stripped
