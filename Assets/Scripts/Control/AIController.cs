@@ -9,7 +9,7 @@ using UnityEngine.Analytics;
 
 
 namespace RPG.Control
-{        
+{
     [RequireComponent(typeof(Mover))]
 
     public class AIController : MonoBehaviour
@@ -17,7 +17,7 @@ namespace RPG.Control
         [SerializeField] private float suspicionTime = 5;
         [SerializeField] private float wayPointTolerance = 1;
         [SerializeField] private float wayPointDelayTime = 3;
-        [SerializeField] int chaseDistance =10;
+        [SerializeField] int chaseDistance = 10;
         [SerializeField] private PatrolPath patrolPath;
 
 
@@ -29,7 +29,7 @@ namespace RPG.Control
         private Vector3 guardPosition;
         private float timeSinceLastSawPlayer = Mathf.Infinity;
         private int currentWayPointIndex = 0;
-        private float timeSinceArrivedAtWaypoint = 0;
+        private float timeSinceArrivedAtWaypoint = Mathf.Infinity;
 
 
 
@@ -47,7 +47,7 @@ namespace RPG.Control
             health = GetComponent<Health>();
 
             // get location at start of game
-           // guardPosition = this.transform.position;
+            // guardPosition = this.transform.position;
 
             //get mover at the start
             mover = GetComponent<Mover>();
@@ -55,14 +55,12 @@ namespace RPG.Control
 
         void Update()
         {
-
-
             if (health.IsDead()) return;
             // fighting logic will already eb happening (checking if has target, checking distance +closing it)
 
             // then we check if the Player is close and not dead
             if (IsInAttackRange(player) && fighter.CanAttack(player))
-            {                
+            {
                 AttackBehaviour();
                 //when we see the player we start the timer at 0
                 timeSinceLastSawPlayer = 0;
@@ -78,11 +76,16 @@ namespace RPG.Control
                 PatrolBehaviour();
             }
 
+            UpdateTimers();
+
+        }
+
+        private void UpdateTimers()
+        {
             //adding a timer to create suspicion
             timeSinceLastSawPlayer += Time.deltaTime;
             //adding timer to add delay at waypoint
             timeSinceArrivedAtWaypoint += Time.deltaTime;
-
         }
 
         private void PatrolBehaviour()
@@ -91,17 +94,20 @@ namespace RPG.Control
 
             if (patrolPath != null)
             {
-                if (AtWayPoint() && timeSinceArrivedAtWaypoint>wayPointDelayTime)
+                if (AtWayPoint())
                 {
-
-                    CycleWaypoint();                   
+                    CycleWaypoint();
                     timeSinceArrivedAtWaypoint = 0;
                 }
 
                 nextPosition = GetCurrentWayPoint();
             }
 
-            mover.StartMoveAction(nextPosition);
+            if (timeSinceArrivedAtWaypoint > wayPointDelayTime)
+            {
+                mover.StartMoveAction(nextPosition);
+            }
+
         }
 
         private bool AtWayPoint()
@@ -114,8 +120,8 @@ namespace RPG.Control
         {
             currentWayPointIndex = patrolPath.GetNextIndex(currentWayPointIndex);
             print(currentWayPointIndex);
-        }    
-        
+        }
+
         private Vector3 GetCurrentWayPoint()
         {
             return patrolPath.GetWaypoint(currentWayPointIndex);
