@@ -28,8 +28,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suspicionTime: 5
   wayPointTolerance: 1
-  wayPointDelayTime: 3
-  chaseDistance: 5
+  wayPointDelayTime: 4
+  chaseDistance: 8
   patrolPath: {fileID: 0}
 --- !u!114 &6960630184671876592
 MonoBehaviour:
@@ -53,22 +53,22 @@ PrefabInstance:
     - target: {fileID: 4395445049915395627, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
         type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Enemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5732950435222677057, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.46195984
+      value: 9.27
       objectReference: {fileID: 0}
     - target: {fileID: 5732950435222677057, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.183831
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 5732950435222677057, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.034893
+      value: -7.54
       objectReference: {fileID: 0}
     - target: {fileID: 5732950435222677057, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
         type: 3}
@@ -115,15 +115,10 @@ PrefabInstance:
       propertyPath: camTarget
       value: 
       objectReference: {fileID: 434611570706156656}
-    - target: {fileID: 4395445049915395625, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
+    - target: {fileID: 1012821466352676933, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
         type: 3}
-      propertyPath: m_Speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4395445049915395625, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
-        type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
+      propertyPath: weaponRange
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1012821466352676933, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
         type: 3}
@@ -135,7 +130,18 @@ PrefabInstance:
       propertyPath: timeBetweenAttacks
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4395445049915395625, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
+        type: 3}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395445049915395625, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 381836078809659281, guid: 00b4be015b13c534d9cdcfc6ea8452a8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 00b4be015b13c534d9cdcfc6ea8452a8, type: 3}
 --- !u!1 &434611570706156656 stripped
 GameObject:
