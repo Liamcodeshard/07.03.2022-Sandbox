@@ -5,48 +5,52 @@ using UnityEngine.Experimental.PlayerLoop;
 
 public class BuildingEnterScript : MonoBehaviour
 {
-    [SerializeField] GameObject inner, outer, mainLighting;
+    bool inside = false;
+    [SerializeField] GameObject inner, outer;
     Vector3 centrePoint;
     GameObject player;
     [SerializeField] float buildingWidth;
+
+    bool justLeft = false;
     void Start()
     {
         centrePoint = this.transform.position;
+        player = GameObject.FindGameObjectWithTag("Player");
         OnBuildingExit();
     }
 
     void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        if (IsInRange())
+        IsInRange();
+        if (inside)
         {
-            print("Entered");
             OnBuildingEnter();
         }
-        else
+        else if(justLeft && !inside)
         {
             OnBuildingExit();
         }
     }
 
-    private bool IsInRange()
+    private void IsInRange()
     {
-        return Vector3.Distance(centrePoint, player.transform.position) < buildingWidth;
+        inside = Vector3.Distance(centrePoint, player.transform.position) < buildingWidth;
     }
 
     public void OnBuildingEnter()
     {
         inner.SetActive(true);
         outer.SetActive(false);
-        mainLighting.SetActive(false);
+        LightBehaviour.lightsOut = true;
+        justLeft = true;
         print("Entered");
     }
     public void OnBuildingExit()
     {
-
         inner.SetActive(false);
         outer.SetActive(true);
-        mainLighting.SetActive(true);
+        LightBehaviour.lightsOut = false;
+        justLeft = false;
         print("Exited");
     }
     void OnDrawGizmosSelected()
