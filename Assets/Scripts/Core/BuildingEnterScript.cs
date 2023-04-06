@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 
 public class BuildingEnterScript : MonoBehaviour
 {
-    bool inside = false;
+    public bool inside = false;
     [SerializeField] GameObject inner, outer;
     Vector3 centrePoint;
     GameObject player;
     [SerializeField] float buildingWidth;
 
-    bool justLeft = false;
+    //bool justLeft = false;
     void Start()
     {
         centrePoint = this.transform.position;
@@ -21,37 +22,32 @@ public class BuildingEnterScript : MonoBehaviour
 
     void Update()
     {
-        IsInRange();
-        if (inside)
+        if (IsInRange())
         {
             OnBuildingEnter();
         }
-        else if(justLeft && !inside)
+        else
         {
             OnBuildingExit();
         }
     }
 
-    private void IsInRange()
+    private bool IsInRange()
     {
-        inside = Vector3.Distance(centrePoint, player.transform.position) < buildingWidth;
+        return Vector3.Distance(centrePoint, player.transform.position) < buildingWidth;
     }
 
-    public void OnBuildingEnter()
+    void OnBuildingEnter()
     {
         inner.SetActive(true);
         outer.SetActive(false);
-        LightBehaviour.lightsOut = true;
-        justLeft = true;
-        print("Entered");
+        inside = true;
     }
-    public void OnBuildingExit()
+    void OnBuildingExit()
     {
         inner.SetActive(false);
         outer.SetActive(true);
-        LightBehaviour.lightsOut = false;
-        justLeft = false;
-        print("Exited");
+        inside = false;
     }
     void OnDrawGizmosSelected()
     {

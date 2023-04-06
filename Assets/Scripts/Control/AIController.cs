@@ -113,13 +113,11 @@ namespace RPG.Control
         private bool AtWayPoint()
         {
             float distanceToWaypoint = Vector3.Distance(this.transform.position, GetCurrentWayPoint());
-            print(distanceToWaypoint < wayPointTolerance);
             return distanceToWaypoint < wayPointTolerance;
         }
         private void CycleWaypoint()
         {
             currentWayPointIndex = patrolPath.GetNextIndex(currentWayPointIndex);
-            print(currentWayPointIndex);
         }
 
         private Vector3 GetCurrentWayPoint()

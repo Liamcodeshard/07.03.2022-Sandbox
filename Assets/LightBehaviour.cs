@@ -5,26 +5,16 @@ using UnityEngine;
 
 public class LightBehaviour : MonoBehaviour
 {
-    public static bool lightsOut = false;
+    //public static bool lightsOut = false;
 
-    void Update()
-    {
-        if (lightsOut)
-        {
-            TurnOffLights();
-        }
-        else
-        {
-            TurnOnLights();
-        }
-    }
-    void TurnOffLights()
+    public void TurnOffLights()
     {
         this.gameObject.SetActive(false);
-        print("Liughtsoffff");
+        print("Lightsoffff");
     }
-    void TurnOnLights()
+    public void TurnOnLights()
     {
         this.gameObject.SetActive(true);
+        print("Lightsonnn");
     }
 }

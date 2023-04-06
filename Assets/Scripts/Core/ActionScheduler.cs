@@ -13,7 +13,7 @@ namespace RPG.Core
 
             if (currentAction != null)
             {
-                print(($"Cancelled {currentAction}"));
+//                print(($"Cancelled {currentAction}"));
                 currentAction.Cancel();
             }            
             currentAction = action;
