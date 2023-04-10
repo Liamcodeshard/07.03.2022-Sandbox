@@ -12,6 +12,7 @@ namespace RPG.Movement
     {
         [SerializeField] Transform targetObject;
         [SerializeField] GameObject camTarget;
+        [SerializeField] float maxSpeed;
 
         private NavMeshAgent navMeshAgent;
         Animator animator;
@@ -43,12 +44,39 @@ namespace RPG.Movement
             //starts the movement
             MoveTo(destination);
         }
+
+        // called in PlayerController interact with movement()
+        // overload made for enemies to have different speeds for patrolling and chasing
+        public void StartMoveAction(Vector3 destination, float speedFraction)
+        {
+            // starts the update loop which updates animator based off the speed off the navmesh
+            GetComponent<ActionScheduler>().StartAction(this);
+
+            //starts the movement
+            MoveTo(destination, speedFraction);
+        }
+       
+        
         public void MoveTo(Vector3 destination)
         {
             // stops the fighter script dead to prioritise movement
             animator.SetTrigger("StopAttack");
             //sets destination
             navMeshAgent.destination = destination;
+            // negates any previous order to stop
+            navMeshAgent.isStopped = false;
+
+        }       
+
+        // this overload made for enemies to have different speeds for patrolling and chasing
+        public void MoveTo(Vector3 destination, float speedFraction)
+        {
+            // stops the fighter script dead to prioritise movement
+            animator.SetTrigger("StopAttack");
+            //sets destination
+            navMeshAgent.destination = destination;
+            // set navmesh agent speed
+            navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
             // negates any previous order to stop
             navMeshAgent.isStopped = false;
         }

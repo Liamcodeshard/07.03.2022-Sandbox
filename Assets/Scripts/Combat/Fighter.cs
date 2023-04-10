@@ -48,7 +48,7 @@ namespace RPG.Combat
             // if not in range, get in range
             if (!GetIsInRange())
             {
-                mover.MoveTo(target.transform.position);
+                mover.MoveTo(target.transform.position, 1f);
             }
             //if in range, cancel movement and start attack
             else

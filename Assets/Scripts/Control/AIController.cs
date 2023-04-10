@@ -19,6 +19,8 @@ namespace RPG.Control
         [SerializeField] private float wayPointDelayTime = 3;
         [SerializeField] int chaseDistance = 10;
         [SerializeField] private PatrolPath patrolPath;
+        [Range(0f, 1f)]
+        [SerializeField] float patrolSpeedFraction = 0.2f;
 
 
         GameObject player;
@@ -51,6 +53,9 @@ namespace RPG.Control
 
             //get mover at the start
             mover = GetComponent<Mover>();
+
+            // set guard position to start position
+            guardPosition = this.transform.position;
         }
 
         void Update()
@@ -105,7 +110,7 @@ namespace RPG.Control
 
             if (timeSinceArrivedAtWaypoint > wayPointDelayTime)
             {
-                mover.StartMoveAction(nextPosition);
+                mover.StartMoveAction(nextPosition, patrolSpeedFraction);
             }
 
         }
@@ -124,7 +129,6 @@ namespace RPG.Control
         {
             return patrolPath.GetWaypoint(currentWayPointIndex);
         }
-
 
 
 

@@ -27,10 +27,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   suspicionTime: 5
-  wayPointTolerance: 1
+  wayPointTolerance: 1.42
   wayPointDelayTime: 0.5
   chaseDistance: 5
   patrolPath: {fileID: 0}
+  patrolSpeedFraction: 0.321
 --- !u!114 &6960630184671876592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +116,11 @@ PrefabInstance:
       propertyPath: camTarget
       value: 
       objectReference: {fileID: 434611570706156656}
+    - target: {fileID: 4395445049915395626, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4395445049915395625, guid: 00b4be015b13c534d9cdcfc6ea8452a8,
         type: 3}
       propertyPath: m_Speed
@@ -145,7 +151,8 @@ PrefabInstance:
       propertyPath: healthPoints
       value: 40
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 381836078809659281, guid: 00b4be015b13c534d9cdcfc6ea8452a8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 00b4be015b13c534d9cdcfc6ea8452a8, type: 3}
 --- !u!1 &434611570706156656 stripped
 GameObject:
