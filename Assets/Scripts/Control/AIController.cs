@@ -49,13 +49,10 @@ namespace RPG.Control
             health = GetComponent<Health>();
 
             // get location at start of game
-            // guardPosition = this.transform.position;
+            guardPosition = this.transform.position;
 
             //get mover at the start
             mover = GetComponent<Mover>();
-
-            // set guard position to start position
-            guardPosition = this.transform.position;
         }
 
         void Update()

@@ -8,6 +8,9 @@ using UnityEngineInternal;
 
 namespace RPG.Movement
 {
+    [RequireComponent(typeof(Health))]
+    [RequireComponent(typeof(ActionScheduler))]
+
     public class Mover : MonoBehaviour, IAction
     {
         [SerializeField] Transform targetObject;
@@ -35,6 +38,8 @@ namespace RPG.Movement
             UpdateAnimator();
         }
         
+
+        /*
         // called in PlayerController interact with movement()
         public void StartMoveAction(Vector3 destination)
         {
@@ -44,10 +49,12 @@ namespace RPG.Movement
             //starts the movement
             MoveTo(destination);
         }
+        */
+
 
         // called in PlayerController interact with movement()
         // overload made for enemies to have different speeds for patrolling and chasing
-        public void StartMoveAction(Vector3 destination, float speedFraction)
+        public void StartMoveAction(Vector3 destination, float speedFraction = 1f)
         {
             // starts the update loop which updates animator based off the speed off the navmesh
             GetComponent<ActionScheduler>().StartAction(this);
@@ -57,6 +64,7 @@ namespace RPG.Movement
         }
        
         
+        /*
         public void MoveTo(Vector3 destination)
         {
             // stops the fighter script dead to prioritise movement
@@ -67,9 +75,10 @@ namespace RPG.Movement
             navMeshAgent.isStopped = false;
 
         }       
+        */
 
         // this overload made for enemies to have different speeds for patrolling and chasing
-        public void MoveTo(Vector3 destination, float speedFraction)
+        public void MoveTo(Vector3 destination, float speedFraction = 1f)
         {
             // stops the fighter script dead to prioritise movement
             animator.SetTrigger("StopAttack");
