@@ -1,18 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
-public class CinematicTrigger : MonoBehaviour
+namespace RPG.Cinematic
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public class CinematicTrigger : MonoBehaviour
     {
-        
+        PlayableDirector PD;
+        bool triggered = false;
+
+        void Start()
+        {
+            PD = GetComponent<PlayableDirector>();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Player" && !triggered)
+            {
+                PD.Play();
+                triggered = true;
+            }
+        }
     }
 }
