@@ -7,6 +7,7 @@ namespace RPG.Core{
     public class Health : MonoBehaviour
     {
         [SerializeField] float healthPoints = 100f;
+        [SerializeField] GameObject deathParticle;
         private Animator animator;
         private bool isDead = false;
 
@@ -37,6 +38,7 @@ namespace RPG.Core{
             animator.SetTrigger("Dead");
             GetComponent<ActionScheduler>().CancelCurrentAction();
             isDead = true;
+            deathParticle.SetActive(true);
         }
 
     }

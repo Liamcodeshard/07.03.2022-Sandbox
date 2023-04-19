@@ -27,7 +27,7 @@ namespace CartoonFX
                 //Open();
             };
         }
-        /*
+        
         [MenuItem("Tools/Cartoon FX Remaster FREE - Welcome Screen")]
         static void Open()
         {
@@ -35,7 +35,7 @@ namespace CartoonFX
             window.minSize = new Vector2(516, 370);
             window.maxSize = new Vector2(516, 370);
         }
-
+        /*
         private void CreateGUI()
         {
             VisualElement root = rootVisualElement;
@@ -72,6 +72,6 @@ namespace CartoonFX
             });
             root.Q<Button>("close").RegisterCallback<ClickEvent>(evt => { this.Close(); });
         }
-        */
+     */   
     }
 }

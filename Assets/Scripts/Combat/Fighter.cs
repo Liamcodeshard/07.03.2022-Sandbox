@@ -15,6 +15,8 @@ namespace RPG.Combat
 
 
         [SerializeField] private float timeBetweenAttacks =.3f;
+
+        [SerializeField] private GameObject hitParticleSystem;
         
         private Health target;
         private Mover mover;
@@ -91,6 +93,7 @@ namespace RPG.Combat
             if (target == null) return;
             // goes into health script of target and damages
             target.TakeDamage(weaponDamage);
+            hitParticleSystem.SetActive(true);
         }
         private bool GetIsInRange()
         {
