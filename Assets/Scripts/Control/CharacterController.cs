@@ -10,8 +10,8 @@ namespace RPG.Control
     public class CharacterController : MonoBehaviour
     {
         [SerializeField] Transform destination;
-        [SerializeField] bool rescued;
-        [SerializeField] bool toldStory;
+        public bool rescued;
+        public bool toldStory;
 
         Animator animator;
         Mover mover;
