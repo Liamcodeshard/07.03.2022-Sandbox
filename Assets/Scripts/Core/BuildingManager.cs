@@ -16,7 +16,7 @@ namespace RPG.Core
         void Start()
         {
             buildings = GetComponentsInChildren<BuildingEnterScript>();
-            print(buildings.Length);
+           // print(buildings.Length);
         }
         // Update is called once per frame
         void Update()
@@ -31,7 +31,7 @@ namespace RPG.Core
             {
                 if (buildings[i].inside == true)
                 {
-                    print(buildings[i].inside == true);
+                  //  print(buildings[i].inside == true);
                     return true;
                 }
             }

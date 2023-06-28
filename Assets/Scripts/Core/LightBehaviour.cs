@@ -24,12 +24,12 @@ namespace RPG.Core
         public void TurnOffLights()
         {
             this.gameObject.SetActive(false);
-            print("Lightsoffff");
+           // print("Lightsoffff");
         }
         public void TurnOnLights()
         {
             this.gameObject.SetActive(true);
-            print("Lightsonnn");
+           // print("Lightsonnn");
         }
     }
 
