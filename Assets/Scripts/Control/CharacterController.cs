@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.Playables;
 
 namespace RPG.Control
 {
@@ -22,6 +22,7 @@ namespace RPG.Control
         {
             mover = GetComponent<Mover>();
             animator = GetComponent<Animator>();
+
         }
 
         // Update is called once per frame
@@ -31,13 +32,10 @@ namespace RPG.Control
             {
                 animator.SetBool("rescued", true);
             }
-            if(toldStory)
-            {
-                SetCharacterDestination(destination);
-            }
+
         }
 
-        private void SetCharacterDestination(Transform _destination)
+        public void SetCharacterDestination()
         {
             mover.StartMoveAction(destination.position);
             animator.SetBool("toldStory", true);

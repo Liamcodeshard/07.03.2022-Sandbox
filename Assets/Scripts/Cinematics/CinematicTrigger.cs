@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using control = RPG.Control;
 
 namespace RPG.Cinematic
 {
@@ -11,8 +12,9 @@ namespace RPG.Cinematic
         PlayableDirector PD;
         bool triggered = false;
 
+
         void Start()
-        {
+        { 
             PD = GetComponent<PlayableDirector>();
         }
 
@@ -23,6 +25,8 @@ namespace RPG.Cinematic
                 PD.Play();
                 triggered = true;
             }
+            
         }
+
     }
 }

@@ -7,6 +7,8 @@ using RPG.Core;
 namespace RPG.Cinematic
 {
 
+    //This goes on the enemy to defeat - when he is dead this cutscene sctivates
+
     public class MaryCutSceneTrigger : MonoBehaviour
     {
         public GameObject Mary;
@@ -17,6 +19,7 @@ namespace RPG.Cinematic
 
         void Start()
         {
+            Mary = GameObject.FindGameObjectWithTag("Mary");
             controller = Mary.GetComponent<RPG.Control.CharacterController>();
             health = this.GetComponent<Health>();
         }
