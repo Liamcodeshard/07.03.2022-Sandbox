@@ -9,6 +9,7 @@ TagManager:
   - mainLighting
   - FxTemporaire
   - Mary
+  - Portal
   layers:
   - Default
   - TransparentFX
