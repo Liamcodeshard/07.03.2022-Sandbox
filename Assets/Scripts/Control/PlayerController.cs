@@ -52,7 +52,6 @@ namespace RPG.Control
                     GetComponent<Fighter>().Attack(target.gameObject);
                 }
                 return true;
-                print("CannAttack");
             }
 
             return false;
@@ -76,8 +75,6 @@ namespace RPG.Control
                     GetComponent<Mover>().StartMoveAction(hit.point,1f);
                 }
             }
-            print("CannMove");
-
             return hasHit;
         }
 

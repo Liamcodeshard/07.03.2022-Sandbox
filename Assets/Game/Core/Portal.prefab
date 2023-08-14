@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3143374491890063259}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8121941968708688279}
   - component: {fileID: 8121941968708688278}
   - component: {fileID: 8121941968708688277}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Portal
   m_TagString: Portal
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 8121941968708688276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 28.83, y: 3.37, z: 25.43}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6372, y: 1, z: 1.1119}
   m_Children:
   - {fileID: 3143374491890063259}
   m_Father: {fileID: 0}
@@ -105,5 +105,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e805d49079ab4f2479952b466330a586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: SandBoxScene
   spawnPoint: {fileID: 3143374491890063259}
