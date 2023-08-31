@@ -105,5 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e805d49079ab4f2479952b466330a586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: SandBoxScene
+  destination: 1
+  sceneName: SandboxScene2
   spawnPoint: {fileID: 3143374491890063259}
+  faderCamvas: {fileID: 0}
