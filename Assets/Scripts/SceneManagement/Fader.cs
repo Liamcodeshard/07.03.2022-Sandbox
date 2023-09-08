@@ -13,11 +13,11 @@ namespace RPG.SceneManagement
         {
             fadeCanvasGroup = GetComponent<CanvasGroup>();
            
-            StartCoroutine(FadeInThenOut());
+            StartCoroutine(FadeOutThenIn());
           //  StartCoroutine(FadeOut(3));
         }
 
-        public IEnumerator FadeInThenOut()
+        public IEnumerator FadeOutThenIn()
         { 
             yield return FadeOut(3);
             yield return FadeIn(1);

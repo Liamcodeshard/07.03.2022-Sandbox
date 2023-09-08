@@ -32,7 +32,6 @@ namespace RPG.Control
             {
                 animator.SetBool("rescued", true);
             }
-
         }
 
         public void SetCharacterDestination()
