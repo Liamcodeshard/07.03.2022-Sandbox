@@ -27,7 +27,7 @@ public class CharacterAnimationTrigger : MonoBehaviour
     {
         if (col.CompareTag("Player") && SimonesCharacterController.rescued)
         {
-            SimonesCharacterController.SetCharacterDestination();
+            SimonesCharacterController.SetCharacterDestination(1);
         }
     }
 }
