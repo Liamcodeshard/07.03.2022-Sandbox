@@ -9,7 +9,8 @@ namespace RPG.Control
 {
     public class CharacterController : MonoBehaviour
     {
-        [SerializeField] Transform destination;
+        [SerializeField] Transform[] destination;
+
         public bool rescued;
         public bool toldStory;
 
@@ -34,9 +35,9 @@ namespace RPG.Control
             }
         }
 
-        public void SetCharacterDestination()
+        public void SetCharacterDestination(int desti)
         {
-            mover.StartMoveAction(destination.position);
+            mover.StartMoveAction(destination[desti].position);
             animator.SetBool("toldStory", true);
         }
     }
