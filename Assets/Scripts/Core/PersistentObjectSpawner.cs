@@ -14,10 +14,13 @@ namespace RPG.Core
 
         private void Awake()
         {
+            //check if this object has already been created - if so then stop 
             if (hasSpawned) return;
 
+            // if not, then spawn the prefab we have created in unity
             SpawnPersistentObjects();
 
+            // if we spawned, then the global variable is set to true and so we wont have another spawned
             hasSpawned =true;
 
 
@@ -25,7 +28,9 @@ namespace RPG.Core
 
         private void SpawnPersistentObjects()
         {
+            // create the prefab in the game
             GameObject persistantObject = Instantiate(persistantObjectPrefab);
+            // ensure it does not get destroyed across scenes
             DontDestroyOnLoad(persistantObject);
         }
     }
