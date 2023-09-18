@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.35, y: 2.91, z: 3.46}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.26, y: 2.91, z: 7.82}
+  m_Center: {x: 0, y: 0, z: -0.61}
 --- !u!114 &8121941968708688277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +113,9 @@ MonoBehaviour:
   sceneName: SandboxScene
   spawnPoint: {fileID: 3143374491890063259}
   faderCamvas: {fileID: 0}
+  fadeOutTime: 1
+  fadeInTime: 0.5
+  fadeWaitTime: 0.5
 --- !u!1001 &88274083
 PrefabInstance:
   m_ObjectHideFlags: 0
