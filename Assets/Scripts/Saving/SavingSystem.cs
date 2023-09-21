@@ -4,7 +4,7 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
-
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace RPG.Saving
 {
