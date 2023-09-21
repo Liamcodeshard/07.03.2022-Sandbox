@@ -33,10 +33,15 @@ namespace RPG.Saving
 
 
                 Transform playerTransform = GetPlayerTransform();
-                byte[] buffer = SerializeVector(playerTransform.position);
+             //   byte[] buffer = SerializeVector(playerTransform.position);
+
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+
+                //needs s stream to write to and an object to copy data from
+                binaryFormatter.Serialize(stream, playerTransform.position);
 
                 // then overwrite current file, starting at index 0- and finishing at length end
-                stream.Write(buffer, 0, buffer.Length);
+              //  stream.Write(buffer, 0, buffer.Length);
             }
 
 
