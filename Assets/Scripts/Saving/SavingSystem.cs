@@ -24,24 +24,14 @@ namespace RPG.Saving
             using (FileStream stream = File.Open(path, FileMode.Create))
             {
 
-                // in C# in order to write in hexidecimal UTF8 we use 0x then write the hexidecimal code 
-                // stream.WriteByte(0xc2);
-                // stream.WriteByte(0xa1);
-
-                // or we can get the UTF8 writing byt first getting a byte array
-                // byte[] bytes = Encoding.UTF8.GetBytes("¡Hola Mundo!");
-
-
                 Transform playerTransform = GetPlayerTransform();
-             //   byte[] buffer = SerializeVector(playerTransform.position);
 
-                BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-                //needs s stream to write to and an object to copy data from
-                binaryFormatter.Serialize(stream, playerTransform.position);
+                BinaryFormatter formatter = new BinaryFormatter();
 
-                // then overwrite current file, starting at index 0- and finishing at length end
-              //  stream.Write(buffer, 0, buffer.Length);
+                SerializableVector3 position = new SerializableVector3(playerTransform.position);
+
+                formatter.Serialize(stream, position);
             }
 
 
