@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3054717834125471341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4395445049915395627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ef4a1736a9da4489db8056ede70c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: ebc7c7c9-397a-4a5f-9237-885f679a9726
 --- !u!1001 &2455041796874049222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,16 +200,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 7357485597376828718, guid: 0a830b28eaaa662488cf2f5d4d9ac8be,
-        type: 3}
-      propertyPath: hitParticleSystem
-      value: 
-      objectReference: {fileID: 4256950837785453528}
-    - target: {fileID: 6118852674903436097, guid: 0a830b28eaaa662488cf2f5d4d9ac8be,
-        type: 3}
-      propertyPath: camTarget
-      value: 
-      objectReference: {fileID: 4395445049915395627}
     - target: {fileID: 2853806488071947050, guid: 0a830b28eaaa662488cf2f5d4d9ac8be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -252,6 +255,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7357485597376828718, guid: 0a830b28eaaa662488cf2f5d4d9ac8be,
+        type: 3}
+      propertyPath: hitParticleSystem
+      value: 
+      objectReference: {fileID: 4256950837785453528}
+    - target: {fileID: 6118852674903436097, guid: 0a830b28eaaa662488cf2f5d4d9ac8be,
+        type: 3}
+      propertyPath: camTarget
+      value: 
+      objectReference: {fileID: 4395445049915395627}
     - target: {fileID: 2260800043804804760, guid: 0a830b28eaaa662488cf2f5d4d9ac8be,
         type: 3}
       propertyPath: deathParticle
