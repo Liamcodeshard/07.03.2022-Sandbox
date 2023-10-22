@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections.Specialized;
 
 namespace RPG.Saving
 {
@@ -14,50 +15,90 @@ namespace RPG.Saving
 
         public void Save(string saveFile)
         {
+            Dictionary<string, object> state = LoadFile(saveFile);
+            CaptureState(state);
+            SaveFile(saveFile, state);
+        }
+
+
+        public void Load(string saveFile)
+        {
+
+
+            RestoreState(LoadFile(saveFile));
+        }
+
+
+
+        private void SaveFile(string saveFile, object state)
+        {
             // get the path name
             string path = GetPathFromSaveFile(saveFile);
 
             print("Saving to " + path);
 
-            // we access the file then create (this will overwrite previous data)
-            // we can use 'using' in this way to ensure we do not forget to close the stream
             using (FileStream stream = File.Open(path, FileMode.Create))
             {
+                // get the data we want to serialioze
 
                 Transform playerTransform = GetPlayerTransform();
 
-
+                // create a bnary formatter
                 BinaryFormatter formatter = new BinaryFormatter();
 
-                SerializableVector3 position = new SerializableVector3(playerTransform.position);
+                // ensure the data is serializable
+                //  SerializableVector3 position = new SerializableVector3(playerTransform.position);
 
-                formatter.Serialize(stream, position);
+                //format the data (save the file)
+                formatter.Serialize(stream, state);
+
             }
-
-
-
-            // must close the stream otherwise it will not be cleaned up - the filehandlers* will get built up and memory error will be thrown
-            //stream.Close(); by putting this in a using brackets, we do not need to close the stream
-
-
         }
-        public void Load(string saveFile)
+
+        private Dictionary<string, object> LoadFile(string saveFile)
         {
             string path = GetPathFromSaveFile(saveFile);
-            print("Loading from " + saveFile);
+            print("Loading from " + path);
+            if (!File.Exists(path))
+            {
+                return new Dictionary<string, object>();
+            }
+
 
             // we access the file then open it  // we can use 'using' in this way to ensure we do not forget to close the stream
             using (FileStream stream = File.Open(path, FileMode.Open))
             {
+                BinaryFormatter formatter = new BinaryFormatter();
+                return (Dictionary<string, object>)formatter.Deserialize(stream);
+            }
+        }
 
-                byte[] buffer = new byte[stream.Length];
-                stream.Read(buffer, 0, buffer.Length); // then reading it, starting at index 0- and finishing at length end // this buffer will contain a vector3
+        private void CaptureState(Dictionary<string, object> state)
+        {
 
-                Transform playerTransform = GetPlayerTransform();
-                playerTransform.position = DeSerializeVector(buffer); // we auto set the players transform
+
+            foreach (SaveableEntity saveable in FindObjectsOfType<SaveableEntity>())
+            {
+                state[saveable.GetUniqueIdentifier()] = saveable.CaptureState();
             }
 
+
         }
+
+
+        private void RestoreState(Dictionary<string, object> state)
+        {
+
+            foreach (SaveableEntity saveable in FindObjectsOfType<SaveableEntity>())
+            {
+                string id = saveable.GetUniqueIdentifier();
+                if (state.ContainsKey(id))
+                {
+                    saveable.RestoreState(state[id]);
+                }
+            }
+        }
+
         private Transform GetPlayerTransform()
         {
             return GameObject.FindGameObjectWithTag("Player").transform;
@@ -89,5 +130,5 @@ namespace RPG.Saving
             // using path.Combine in order to create an appropriate pathway for seperate platforms
             return Path.Combine(Application.persistentDataPath, saveFile + ".sav");
         }
-    }       
-}   
+    }
+}
