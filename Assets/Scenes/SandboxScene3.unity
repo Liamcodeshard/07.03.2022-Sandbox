@@ -1734,42 +1734,37 @@ PrefabInstance:
     - target: {fileID: 6943179458149828501, guid: 6bb5d01610a110543b1f199cc7515215,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 383.1554
+      value: 383.16418
       objectReference: {fileID: 0}
     - target: {fileID: 6943179458149828501, guid: 6bb5d01610a110543b1f199cc7515215,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 187.10062
+      value: 187.09882
       objectReference: {fileID: 0}
     - target: {fileID: 6943179458149828501, guid: 6bb5d01610a110543b1f199cc7515215,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.528625
+      value: -26.506485
       objectReference: {fileID: 0}
     - target: {fileID: 6943179458155061086, guid: 6bb5d01610a110543b1f199cc7515215,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 383.1554
+      value: 383.16418
       objectReference: {fileID: 0}
     - target: {fileID: 6943179458155061086, guid: 6bb5d01610a110543b1f199cc7515215,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 187.10062
+      value: 187.09882
       objectReference: {fileID: 0}
     - target: {fileID: 6943179458155061086, guid: 6bb5d01610a110543b1f199cc7515215,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.528625
+      value: -26.506485
       objectReference: {fileID: 0}
     - target: {fileID: 6943179458934336209, guid: 6bb5d01610a110543b1f199cc7515215,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8224691796266404493, guid: 6bb5d01610a110543b1f199cc7515215,
-        type: 3}
-      propertyPath: uniqueIdentifier
-      value: 5478bdd7-1c74-47eb-bb71-fd05ffab0e25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bb5d01610a110543b1f199cc7515215, type: 3}
@@ -1780,11 +1775,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 553437890}
     m_Modifications:
-    - target: {fileID: 6502227835836332554, guid: 54b83e1340e39704babecd0d85a1999c,
-        type: 3}
-      propertyPath: uniqueIdentifier
-      value: 1ceda126-cc81-4637-9b75-9a025cb3a6a8
-      objectReference: {fileID: 0}
     - target: {fileID: 826484340243071909, guid: 54b83e1340e39704babecd0d85a1999c,
         type: 3}
       propertyPath: m_Name
@@ -2331,11 +2321,6 @@ PrefabInstance:
         type: 3}
       propertyPath: patrolSpeedFraction
       value: 0.783
-      objectReference: {fileID: 0}
-    - target: {fileID: 8511707311493681648, guid: 2e2325462a6d07347b9a8a9179084e53,
-        type: 3}
-      propertyPath: uniqueIdentifier
-      value: 296fdd31-0938-44ba-9762-0e996fd4125a
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e2325462a6d07347b9a8a9179084e53, type: 3}

@@ -19,9 +19,8 @@ GameObject:
   - component: {fileID: 968361654811416687}
   - component: {fileID: 3184337763648062628}
   - component: {fileID: 7919984073061243429}
-  - component: {fileID: 6502227835836332554}
   m_Layer: 0
-  m_Name: RatCreature
+  m_Name: CreatureEnemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -224,19 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07562e83de6bcf148977bb53f42559ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6502227835836332554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826484340243071909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ef4a1736a9da4489db8056ede70c9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueIdentifier: 
 --- !u!1 &906411991506660950
 GameObject:
   m_ObjectHideFlags: 0
