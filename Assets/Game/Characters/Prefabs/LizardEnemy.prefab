@@ -8141,6 +8141,7 @@ GameObject:
   - component: {fileID: 4887291861367195721}
   - component: {fileID: 7102849056875811970}
   - component: {fileID: 2542851862466841091}
+  - component: {fileID: 8511707311493681648}
   m_Layer: 0
   m_Name: LizardEnemy
   m_TagString: Untagged
@@ -8345,6 +8346,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07562e83de6bcf148977bb53f42559ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8511707311493681648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033664177052013443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ef4a1736a9da4489db8056ede70c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 
 --- !u!1 &6571430063992559404
 GameObject:
   m_ObjectHideFlags: 0
@@ -31611,11 +31625,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3249908626172229416, guid: b72e7c44de4689f42a7674b7995a2a9d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3249908626180004118, guid: b72e7c44de4689f42a7674b7995a2a9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31630,6 +31639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249908626172229416, guid: b72e7c44de4689f42a7674b7995a2a9d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3249908626180004042, guid: b72e7c44de4689f42a7674b7995a2a9d,
         type: 3}
@@ -34973,15 +34987,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b72e7c44de4689f42a7674b7995a2a9d, type: 3}
---- !u!4 &7212037039942843876 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3249908626180004118, guid: b72e7c44de4689f42a7674b7995a2a9d,
-    type: 3}
-  m_PrefabInstance: {fileID: 5264624226210374898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7212037039942843878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3249908626180004116, guid: b72e7c44de4689f42a7674b7995a2a9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5264624226210374898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7212037039942843876 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3249908626180004118, guid: b72e7c44de4689f42a7674b7995a2a9d,
     type: 3}
   m_PrefabInstance: {fileID: 5264624226210374898}
   m_PrefabAsset: {fileID: 0}
